@@ -1,0 +1,16 @@
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Table</th>
+    <th>Date</th>
+</tr>
+{% for reservation in reservations %}
+<tr>
+    <td>{{ reservation.id }}</td>
+    <td>{{ reservation.user.username }}</td>
+    <td>{{ reservation.phone }}</td> 
+    <td>{{ reservation.table.number }}</td>
+    <td>{{ reservation.date }}</td>
+</tr>
+{% endfor %}

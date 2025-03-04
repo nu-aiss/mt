@@ -12,10 +12,10 @@
             <th>Date</th>
             <th>Status</th>
         </tr>
-        {% for reservation in reservations %}
+        
         <tr>
             <td>{{ reservation.id }}</td>
-            <td>{{ reservation.customer.name }}</td>
+            <td>{{ reservation.user.username }}</td>
             <td>{{ reservation.table.number }}</td>
             <td>{{ reservation.date }}</td>
             <td>
@@ -28,6 +28,6 @@
                 {% endif %}
             </td>
         </tr>
-        {% endfor %}
+        
     </table>
 {% endblock %}
