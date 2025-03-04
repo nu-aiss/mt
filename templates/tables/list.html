@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Tables{% endblock %}
+
+{% block content %}
+    <h1>Tables List</h1>
+    <table class="table table-bordered">
+        <tr>
+            <th>Number</th>
+            <th>Seats</th>
+            <th>Available</th>
+        </tr>
+        {% for table in tables %}
+        <tr>
+            <td>{{ table.number }}</td>
+            <td>{{ table.seats }}</td>
+            <td>{{ table.is_available|yesno:"✅,❌" }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

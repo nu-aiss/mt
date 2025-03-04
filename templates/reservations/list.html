@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Reservations{% endblock %}
+
+{% block content %}
+    <h1>Reservations</h1>
+    <table class="table table-hover">
+        <tr>
+            <th>ID</th>
+            <th>Customer</th>
+            <th>Table</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+        {% for reservation in reservations %}
+        <tr>
+            <td>{{ reservation.id }}</td>
+            <td>{{ reservation.customer.name }}</td>
+            <td>{{ reservation.table.number }}</td>
+            <td>{{ reservation.date }}</td>
+            <td>
+                {% if reservation.status == "pending" %}
+                    <span class="badge bg-warning">Pending</span>
+                {% elif reservation.status == "confirmed" %}
+                    <span class="badge bg-success">Confirmed</span>
+                {% else %}
+                    <span class="badge bg-danger">Canceled</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

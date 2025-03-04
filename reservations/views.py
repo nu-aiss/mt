@@ -9,6 +9,9 @@ def reservation_detail(request, id):
     reservation = get_object_or_404(Reservation, id=id)
     return render(request, "reservations/detail.html", {"reservation": reservation})
 
+def reservations_list(request):
+    return render(request, 'reservations/list.html')
+
 def user_reservations(request, user_id):
     reservations = Reservation.objects.filter(customer_id=user_id)
     return render(request, "reservations/user_reservations.html", {"reservations": reservations})
